@@ -11,3 +11,16 @@ export interface IUser {
   createdAt: Date;
   updatedAt: Date;
 }
+
+
+export interface ILoginDTO {
+  email: string;
+  password: string;
+}
+
+export interface ICreateUserDTO {
+  name: string;
+  email: string;
+  password: string;
+  role: UserRole;
+}
