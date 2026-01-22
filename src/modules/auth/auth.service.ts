@@ -58,18 +58,29 @@ const registerViaInvite = async (
     throw new ApiError(400, 'Invite expired or invalid');
   }
 
+  // 🔥 CHECK EXISTING USER
+  const existingUser = await User.findOne({ email: invite.email });
+  if (existingUser) {
+    throw new ApiError(409, 'User already registered with this email');
+  }
+
   const user = await User.create({
     name,
-    email: invite.email,
+    email: invite.email.toLowerCase().trim(),
     role: invite.role,
     password: await hashPassword(password),
+    status: 'ACTIVE',
     invitedAt: new Date(),
   });
 
   invite.acceptedAt = new Date();
   await invite.save();
 
-  return user;
+  return {
+    id: user._id,
+    email: user.email,
+    role: user.role,
+  };
 };
 
 
