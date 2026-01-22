@@ -1,0 +1,16 @@
+import { Router } from 'express';
+ 
+import { auth, isAdmin } from '../../middlewares/auth.middleware';
+ 
+import { UserController } from '../user/user.controller';
+import { AuthController } from './auth.controller';
+ 
+
+const router = Router();
+router.post('/register', UserController.registerUser);
+router.post('/login', AuthController.login);
+
+router.post('/invite', auth, isAdmin, AuthController.invite);
+router.post('/register-via-invite', AuthController.registerViaInvite);
+
+export default router;

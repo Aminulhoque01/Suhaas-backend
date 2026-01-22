@@ -2,7 +2,7 @@
 
 import { Router } from 'express';
 import { UserController } from './user.controller';
-import { auth, isAdmin } from '../middlewares/auth.middleware';
+import { auth, isAdmin } from '../../middlewares/auth.middleware';
  
  
 
