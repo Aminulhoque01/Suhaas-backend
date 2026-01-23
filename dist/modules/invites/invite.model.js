@@ -1,9 +1,6 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Invite = void 0;
-const mongoose_1 = require("mongoose");
-const enums_1 = require("../../types/enums");
-const inviteSchema = new mongoose_1.Schema({
+import { Schema, model } from 'mongoose';
+import { UserRole } from '../../types/enums.js';
+const inviteSchema = new Schema({
     email: {
         type: String,
         required: true,
@@ -12,7 +9,7 @@ const inviteSchema = new mongoose_1.Schema({
     },
     role: {
         type: String,
-        enum: Object.values(enums_1.UserRole),
+        enum: Object.values(UserRole),
         required: true,
     },
     token: {
@@ -31,5 +28,4 @@ const inviteSchema = new mongoose_1.Schema({
 }, {
     timestamps: true,
 });
-exports.Invite = (0, mongoose_1.model)('Invite', inviteSchema);
-//# sourceMappingURL=invite.model.js.map
+export const Invite = model('Invite', inviteSchema);

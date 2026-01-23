@@ -1,34 +1,27 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.ProjectService = void 0;
-const mongoose_1 = __importDefault(require("mongoose"));
-const project_model_1 = require("./project.model");
+import mongoose from "mongoose";
+import { Project } from "./project.model.js";
 const createProject = async (data, userId) => {
-    const result = await project_model_1.Project.create({
+    const result = await Project.create({
         ...data,
-        createdBy: new mongoose_1.default.Types.ObjectId(userId),
+        createdBy: new mongoose.Types.ObjectId(userId),
     });
     return result;
 };
 const getProjects = async () => {
-    const result = await project_model_1.Project.find({ isDeleted: false });
+    const result = await Project.find({ isDeleted: false });
     return result;
 };
 const updateProject = async (id, data) => {
-    const result = await project_model_1.Project.findByIdAndUpdate(id, data, { new: true });
+    const result = await Project.findByIdAndUpdate(id, data, { new: true });
     return result;
 };
 const softDeleteProject = async (id) => {
-    const project = await project_model_1.Project.findByIdAndUpdate(id, { isDeleted: true, status: "DELETED" }, { new: true });
+    const project = await Project.findByIdAndUpdate(id, { isDeleted: true, status: "DELETED" }, { new: true });
     return project;
 };
-exports.ProjectService = {
+export const ProjectService = {
     createProject,
     getProjects,
     updateProject,
     softDeleteProject,
 };
-//# sourceMappingURL=project.service.js.map

@@ -1,17 +1,12 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const dotenv_1 = __importDefault(require("dotenv"));
-const bd_js_1 = require("./config/bd.js");
-const app_js_1 = __importDefault(require("./app.js"));
-dotenv_1.default.config();
+import dotenv from "dotenv";
+import { connectDB } from "./config/bd.js";
+import app from "./app.js";
+dotenv.config();
 const PORT = process.env.PORT || 5000;
 const startServer = async () => {
     try {
-        await (0, bd_js_1.connectDB)();
-        app_js_1.default.listen(PORT, () => {
+        await connectDB();
+        app.listen(PORT, () => {
             console.log(`🚀 Server running on http://localhost:${PORT}`);
         });
     }
@@ -21,4 +16,3 @@ const startServer = async () => {
     }
 };
 startServer();
-//# sourceMappingURL=index.js.map

@@ -1,14 +1,5 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
+import bcrypt from 'bcrypt';
+export const hashPassword = (password) => bcrypt.hash(password, 10);
+export const comparePassword = async (plain, hashed) => {
+    return bcrypt.compare(plain, hashed);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.comparePassword = exports.hashPassword = void 0;
-const bcrypt_1 = __importDefault(require("bcrypt"));
-const hashPassword = (password) => bcrypt_1.default.hash(password, 10);
-exports.hashPassword = hashPassword;
-const comparePassword = async (plain, hashed) => {
-    return bcrypt_1.default.compare(plain, hashed);
-};
-exports.comparePassword = comparePassword;
-//# sourceMappingURL=password.js.map

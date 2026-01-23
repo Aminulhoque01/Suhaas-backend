@@ -1,13 +1,10 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const express_1 = require("express");
-const auth_middleware_1 = require("../../middlewares/auth.middleware");
-const user_controller_1 = require("../user/user.controller");
-const auth_controller_1 = require("./auth.controller");
-const router = (0, express_1.Router)();
-router.post('/register', user_controller_1.UserController.registerUser);
-router.post('/login', auth_controller_1.AuthController.login);
-router.post('/invite', auth_middleware_1.auth, auth_middleware_1.isAdmin, auth_controller_1.AuthController.invite);
-router.post('/register-via-invite', auth_controller_1.AuthController.registerViaInvite);
-exports.default = router;
-//# sourceMappingURL=auth.routes.js.map
+import { Router } from 'express';
+import { auth, isAdmin } from '../../middlewares/auth.middleware.js';
+import { UserController } from '../user/user.controller.js';
+import { AuthController } from './auth.controller.js';
+const router = Router();
+router.post('/register', UserController.registerUser);
+router.post('/login', AuthController.login);
+router.post('/invite', auth, isAdmin, AuthController.invite);
+router.post('/register-via-invite', AuthController.registerViaInvite);
+export default router;

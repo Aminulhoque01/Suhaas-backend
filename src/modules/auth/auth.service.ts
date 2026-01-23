@@ -1,11 +1,11 @@
  
  
 import crypto from 'crypto';
-import { User } from '../user/user.module';
-import { ApiError } from '../../utils/ApiError';
-import { comparePassword, hashPassword } from '../../utils/password';
-import { signToken } from '../../utils/jwt';
-import { Invite } from '../invites/invite.model';
+import { User } from '../user/user.module.js';
+import { ApiError } from '../../utils/ApiError.js';
+import { comparePassword, hashPassword } from '../../utils/password.js';
+import { signToken } from '../../utils/jwt.js';
+import { Invite } from '../invites/invite.model.js';
 
 
 

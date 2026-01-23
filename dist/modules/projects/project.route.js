@@ -1,16 +1,13 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const express_1 = require("express");
-const auth_middleware_1 = require("../../middlewares/auth.middleware");
-const project_controller_1 = require("./project.controller");
-const router = (0, express_1.Router)();
+import { Router } from 'express';
+import { auth, isAdmin } from '../../middlewares/auth.middleware.js';
+import { ProjectController } from './project.controller.js';
+const router = Router();
 // Create a new project (any authenticated user)
-router.post('/', auth_middleware_1.auth, project_controller_1.ProjectController.create);
+router.post('/', auth, ProjectController.create);
 // Get all projects (any authenticated user)
-router.get('/', auth_middleware_1.auth, project_controller_1.ProjectController.getAll);
+router.get('/', auth, ProjectController.getAll);
 // Update a project (admin only)
-router.patch('/:id', auth_middleware_1.auth, auth_middleware_1.isAdmin, project_controller_1.ProjectController.update);
+router.patch('/:id', auth, isAdmin, ProjectController.update);
 // Soft delete a project (admin only)
-router.delete('/:id', auth_middleware_1.auth, auth_middleware_1.isAdmin, project_controller_1.ProjectController.remove);
-exports.default = router;
-//# sourceMappingURL=project.route.js.map
+router.delete('/:id', auth, isAdmin, ProjectController.remove);
+export default router;

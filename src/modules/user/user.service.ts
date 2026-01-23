@@ -1,7 +1,7 @@
 import bcrypt from "bcryptjs";
-import { UserRole, UserStatus } from "../../types/enums";
-import { ApiError } from "../../utils/ApiError";
-import { User } from "./user.module";
+import { UserRole, UserStatus } from "../../types/enums.js";
+import { ApiError } from "../../utils/ApiError.js";
+import { User } from "./user.module.js";
 
 interface RegisterUserInput {
   name: string;
