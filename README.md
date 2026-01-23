@@ -1,18 +1,18 @@
-## project name: Suhaas_backend
+# project name: Suhaas_backend
 
 # use 
 * typescript
 * mongoose
 * mongodb
 
-# routes / auth
+### routes / auth
  
 * singup-----> http://localhost:5000/auth/register
 * login----> http://localhost:5000/auth/login
 * invite----> http://localhost:5000/auth/invite
 * register-via-invite---> http://localhost:5000/auth/register-via-invite/
 
-# users routes
+### users routes
 
 * get-all user-----> http://localhost:5000/users/ (admin)
 * change-role ------> http://localhost:5000/users/6971bab7d816eeba609e0f9e/role (admin)
@@ -21,7 +21,7 @@
 
 
 
-# project routes
+### project routes
 
 * create-project ----> http://localhost:5000/project/ 
 * get-all-project ----> http://localhost:5000/project/
