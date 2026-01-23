@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
-import { IProject } from "./project.interface.js";
-import { Project } from "./project.model.js";
+import { IProject } from "./project.interface";
+import { Project } from "./project.model";
 
 const createProject = async (data: Partial<IProject>, userId: string) => {
   const result = await Project.create({

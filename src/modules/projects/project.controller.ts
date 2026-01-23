@@ -1,7 +1,7 @@
 
 import { Request, Response } from 'express';
-import { ProjectService } from './project.service.js';
-import { IProject } from './project.interface.js';
+import { ProjectService } from './project.service';
+import { IProject } from './project.interface';
 
 // Create a new project
 const create = async (req: Request, res: Response) => {

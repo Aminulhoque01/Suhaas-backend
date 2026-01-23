@@ -1,7 +1,7 @@
 import bcrypt from "bcryptjs";
-import { UserRole, UserStatus } from "../../types/enums.js";
-import { ApiError } from "../../utils/ApiError.js";
-import { User } from "./user.module.js";
+import { UserRole, UserStatus } from "../../types/enums";
+import { ApiError } from "../../utils/ApiError";
+import { User } from "./user.module";
 const normalizeEmail = (email) => email.toLowerCase().trim();
 export const registerUser = async (payload) => {
     const { name, email, password, role } = payload;
