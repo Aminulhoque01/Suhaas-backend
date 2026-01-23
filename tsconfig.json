@@ -42,6 +42,8 @@
     "moduleDetection": "force",
     "skipLibCheck": true,
 
-    "types": ["node"]
+    "types": ["node"],
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
   }
 }
