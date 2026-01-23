@@ -1,4 +1,4 @@
-import { UserRole } from '../../types/enums';
+import { UserRole } from '../../types/enums.js';
 
 export interface CreateInviteDTO {
   email: string;

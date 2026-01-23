@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { Project } from "./project.model";
+import { Project } from "./project.model.js";
 const createProject = async (data, userId) => {
     const result = await Project.create({
         ...data,

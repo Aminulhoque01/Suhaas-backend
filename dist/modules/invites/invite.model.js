@@ -1,5 +1,5 @@
 import { Schema, model } from 'mongoose';
-import { UserRole } from '../../types/enums';
+import { UserRole } from '../../types/enums.js';
 const inviteSchema = new Schema({
     email: {
         type: String,

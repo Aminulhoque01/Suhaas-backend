@@ -1,4 +1,4 @@
-import { ProjectService } from './project.service';
+import { ProjectService } from './project.service.js';
 // Create a new project
 const create = async (req, res) => {
     try {

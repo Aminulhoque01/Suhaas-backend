@@ -1,4 +1,4 @@
-import { UserRole } from '../../types/enums';
+import { UserRole } from '../../types/enums.js';
 
 export interface IInvite {
   _id: string;

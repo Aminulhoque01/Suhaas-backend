@@ -1,6 +1,6 @@
 import { Schema, model } from 'mongoose';
-import { IInvite } from './invite.interface';
-import { UserRole } from '../../types/enums';
+import { IInvite } from './invite.interface.js';
+import { UserRole } from '../../types/enums.js';
  
 const inviteSchema = new Schema<IInvite>(
   {

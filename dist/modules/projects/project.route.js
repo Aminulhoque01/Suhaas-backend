@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import { auth, isAdmin } from '../../middlewares/auth.middleware';
-import { ProjectController } from './project.controller';
+import { auth, isAdmin } from '../../middlewares/auth.middleware.js';
+import { ProjectController } from './project.controller.js';
 const router = Router();
 // Create a new project (any authenticated user)
 router.post('/', auth, ProjectController.create);
